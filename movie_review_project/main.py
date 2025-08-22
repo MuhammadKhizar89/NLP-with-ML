@@ -52,8 +52,8 @@ if st.button("Predict"):
     if review_text.strip() != "":
         prediction = predict_review(review_text)
         if prediction == "positive":
-            st.success("😊 Positive Review")
+            st.success("Prediction: 😊 Positive Review")
         else:
-            st.error("☹️ Negative Review")
+            st.error("Prediction: ☹️ Negative Review")
     else:
         st.warning("Please enter some text first.")
