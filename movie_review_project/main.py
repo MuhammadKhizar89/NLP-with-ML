@@ -38,7 +38,7 @@ def predict_review(review):
     review = review.lower()
     review = remove_stopwords(review)
     result=pipeline.predict([review])[0]
-    return "😊 Positive" if result == 1 else "☹️ Negative"
+    return "positive" if result == 1 else "negative"
 
 
 st.title("🎬 Movie Review Sentiment Analysis ")
@@ -47,9 +47,13 @@ st.markdown("""This app uses **Natural Language Processing (NLP)** to analyze mo
 
 st.write("Enter a movie review below to see if it's **positive or negative**.")
 review_text = st.text_area("Write your review here:")
+
 if st.button("Predict"):
     if review_text.strip() != "":
         prediction = predict_review(review_text)
-        st.success(f"Prediction: {prediction}")
+        if prediction == "positive":
+            st.success("😊 Positive Review")
+        else:
+            st.error("☹️ Negative Review")
     else:
         st.warning("Please enter some text first.")
