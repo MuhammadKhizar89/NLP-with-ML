@@ -30,7 +30,7 @@ def remove_emojis(text):
     return ''.join([char for char in text if char.isascii()])
 
 def predict_review(review):
-    pipeline = joblib.load("sentiment_pipeline.pkl")
+    pipeline = joblib.load("./sentiment_pipeline.pkl")
     review = remove_html_tags(review)
     review = remove_punctuation(review)
     review = remove_emojis(review)
