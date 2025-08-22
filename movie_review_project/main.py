@@ -40,7 +40,31 @@ def predict_review(review):
     result=pipeline.predict([review])[0]
     return "positive" if result == 1 else "negative"
 
+st.markdown(
+    """
+    <style>
+        /* Main app background */
+        .stApp {
+            background-color: #0e1117;
+            color: white; /* text color */
+        }
 
+        /* Optional: change text input area background */
+        textarea, input {
+            background-color: #262730 !important;
+            color: white !important;
+        }
+
+        /* Optional: change buttons */
+        button {
+            background-color: #131720 !important;
+            color: white !important;
+            border-radius: 8px !important;
+        }
+    </style>
+    """,
+    unsafe_allow_html=True
+)
 st.title("🎬 Movie Review Sentiment Analysis ")
 st.markdown("""This app uses **Natural Language Processing (NLP)** to analyze movie reviews.  
 """)
